@@ -78,5 +78,4 @@ jobs:
         cd qt-hostbuild
         cmake ../qt5/ -GNinja -DCMAKE_BUILD_TYPE=Release -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=$HOME/qt-host
         cmake --build . --parallel 8
-        cmake --install .
-        
+        cmake --install .        
