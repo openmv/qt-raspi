@@ -19,7 +19,7 @@ Note that you need to use:
     chmod +x sysroot-relativelinks.py 
     python3 sysroot-relativelinks.py $TARGET_SYSROOT
 
-To fix the symlinks instead of what the guide says for the sysroot image. This repo includes a valid sysroot image that is already fixed.
+To fix the symlinks instead of what the guide says for the sysroot image. This repo includes a valid sysroot image that is already fixed. https://forum.qt.io/topic/139683/qt6-raspberry-pi-cross-compliation-error/17
 
 ## Contributing to the project
 
