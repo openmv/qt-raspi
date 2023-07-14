@@ -9,7 +9,7 @@
 
 # Qt 6 Cross-Compile for Raspberry Pi
 
-This repo contains Qt cross compiled for the Raspberry Pi (64-bit) which you can use to build a Qt appllication for the Rasberry Pi.
+This repo contains Qt cross compiled for the Raspberry Pi (64-bit) which you can use to build a Qt application for the Rasberry Pi.
 
 https://wiki.qt.io/Cross-Compile_Qt_6_for_Raspberry_Pi
 
