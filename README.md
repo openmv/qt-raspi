@@ -35,7 +35,7 @@ Contributions are most welcome. If you are interested in contributing to the pro
 
 Clone the forked qt-raspi repository, and add a remote to the main qt-raspi repository:
 ```bash
-git clone --recursive https://github.com/<username>/qt-raspi.git
+git clone https://github.com/<username>/qt-raspi.git
 git -C qt-raspi remote add upstream https://github.com/openmv/qt-raspi.git
 ```
 
