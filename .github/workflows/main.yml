@@ -75,8 +75,8 @@ jobs:
     - name: '🏗 Build Qt for Host'
       run: |
         cd $HOME
-        mkdir qt-host qt-raspi qthost-build qtpi-build
-        mkdir rpi-sysroot rpi-sysroot/usr rpi-sysroot/opt
+        mkdir -p rpi-sysroot rpi-sysroot/usr rpi-sysroot/opt
+        mkdir -p qt-host qt-raspi qthost-build qtpi-build
         git clone https://codereview.qt-project.org/qt/qt5
         cd qt5
         git checkout 6.5.1
