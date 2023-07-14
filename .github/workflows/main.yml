@@ -16,6 +16,11 @@ jobs:
     - name: '⏳ Checkout'
       uses: actions/checkout@v3
 
+    - name: '⏳ Extract
+      run: |
+        tar -xzvf rpi-sysroot.tar.gz -C ~
+        cp toolchain.cmake ~
+
     - name: '⬇ Install'
       run: |
         sudo apt update -y
@@ -79,6 +84,13 @@ jobs:
         cd qt-hostbuild
         cmake ../qt5/ -GNinja -DCMAKE_BUILD_TYPE=Release -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF -DCMAKE_INSTALL_PREFIX=$HOME/qt-host
         cmake --build . --parallel 8
+        cmake --install .
+
+    - name: '🏗 Build Qt for Target'
+      run: |
+        cd $HOME/qtpi-build
+        cmake ../qt5/ -GNinja -DCMAKE_BUILD_TYPE=Release -DINPUT_opengl=es2 -DQT_BUILD_EXAMPLES=OFF -DQT_BUILD_TESTS=OFF -DQT_HOST_PATH=$HOME/qt-host -DCMAKE_STAGING_PREFIX=$HOME/qt-raspi -DCMAKE_INSTALL_PREFIX=/usr/local/qt6 -DCMAKE_TOOLCHAIN_FILE=$HOME/toolchain.cmake -DQT_QMAKE_TARGET_MKSPEC=devices/linux-rasp-pi4-aarch64 -DQT_FEATURE_xcb=ON -DFEATURE_xcb_xlib=ON -DQT_FEATURE_xlib=ON
+        cmake --build . --parallel 4
         cmake --install .
 
   stable-release:
