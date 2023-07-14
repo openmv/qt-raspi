@@ -92,6 +92,18 @@ jobs:
         cmake --build . --parallel 4
         cmake --install .
 
+    - name: '⏳ Compress'
+      run: |
+        cd $HOME
+        tar -czvf qt-raspi.tar.gz qt-raspi/
+
+    - name: '⬆ Upload artifacts'
+      if: github.event_name != 'pull_request'
+      uses: actions/upload-artifact@v3
+      with:
+        path: '$HOME/qt-raspi.tar.gz'
+        if-no-files-found: error
+
   stable-release:
     needs: build
     runs-on: ubuntu-latest
