@@ -19,7 +19,13 @@ Note that you need to use:
     chmod +x sysroot-relativelinks.py 
     python3 sysroot-relativelinks.py $TARGET_SYSROOT
 
-To fix the symlinks instead of what the guide says for the sysroot image. This repo includes a valid sysroot image that is already fixed. https://forum.qt.io/topic/139683/qt6-raspberry-pi-cross-compliation-error/17
+To fix the symlinks instead of what the guide says for the sysroot image. https://forum.qt.io/topic/139683/qt6-raspberry-pi-cross-compliation-error/17
+
+This repo includes a valid sysroot image that is already fixed. Here's the `uname -a`
+
+    Linux raspberrypi 6.1.21-v8+ #1642 SMP PREEMPT Mon Apr  3 17:24:16 BST 2023 aarch64 GNU/Linux
+
+To regenerate the sysroot you'll need to follow the guide above and then apply the symlink fix above. Afterwhich you should be able to `tar -czvf rpi-sysroot.tar.gz rpi-sysroot` to create the sysroot tar stored in this repo which is used by github actions for the cross compile.
 
 ## Contributing to the project
 
