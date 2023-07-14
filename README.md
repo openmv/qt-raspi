@@ -13,6 +13,14 @@ This repo contains Qt cross compiled for the Raspberry Pi (64-bit) which you can
 
 https://wiki.qt.io/Cross-Compile_Qt_6_for_Raspberry_Pi
 
+Note that you need to use:
+
+    wget https://raw.githubusercontent.com/riscv/riscv-poky/master/scripts/sysroot-relativelinks.py
+    chmod +x sysroot-relativelinks.py 
+    python3 sysroot-relativelinks.py $TARGET_SYSROOT
+
+To fix the symlinks instead of what the guide says for the sysroot image. This repo includes a valid sysroot image that is already fixed.
+
 ## Contributing to the project
 
 Contributions are most welcome. If you are interested in contributing to the project, start by creating a fork:
