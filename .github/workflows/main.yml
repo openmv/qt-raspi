@@ -98,6 +98,7 @@ jobs:
     - name: '⏳ Compress'
       run: |
         cd $HOME
+        tar -czvf qt-host.tar.gz qt-host/
         tar -czvf qt-raspi.tar.gz qt-raspi/
         ls $HOME
 
@@ -105,7 +106,9 @@ jobs:
       if: github.event_name != 'pull_request'
       uses: actions/upload-artifact@v3
       with:
-        path: '/home/runner/qt-raspi.tar.gz'
+        path: |
+          '/home/runner/qt-host.tar.gz'
+          '/home/runner/qt-raspi.tar.gz'
         if-no-files-found: error
 
   stable-release:
@@ -137,7 +140,7 @@ jobs:
     - name: '🧹 Remove artifacts'
       uses: geekyeggo/delete-artifact@v2
       with:
-        name: 'qt-raspi*'
+        name: 'qt-*'
         failOnError: false
 
   development-release:
@@ -183,5 +186,5 @@ jobs:
     - name: '🧹 Remove artifacts'
       uses: geekyeggo/delete-artifact@v2
       with:
-        name: 'qt-raspi*'
+        name: 'qt-*'
         failOnError: false        
