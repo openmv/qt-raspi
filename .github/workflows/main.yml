@@ -16,7 +16,7 @@ jobs:
     - name: '⏳ Checkout'
       uses: actions/checkout@v3
 
-    - name: '⏳ Extract
+    - name: '⏳ Extract'
       run: |
         tar -xzvf rpi-sysroot.tar.gz -C ~
         cp toolchain.cmake ~
