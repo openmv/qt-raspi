@@ -99,15 +99,19 @@ jobs:
         cd $HOME
         tar -czvf qt-host.tar.gz qt-host/
         tar -czvf qt-raspi.tar.gz qt-raspi/
-        ls $HOME
 
-    - name: '⬆ Upload artifacts'
+    - name: '⬆ Upload artifact qt-host'
       if: github.event_name != 'pull_request'
       uses: actions/upload-artifact@v3
       with:
-        path: |
-          '/home/runner/qt-host.tar.gz'
-          '/home/runner/qt-raspi.tar.gz'
+        path: '/home/runner/qt-host.tar.gz'
+        if-no-files-found: error
+        
+    - name: '⬆ Upload artifact qt-raspi'
+      if: github.event_name != 'pull_request'
+      uses: actions/upload-artifact@v3
+      with:
+        path: '/home/runner/qt-raspi.tar.gz'
         if-no-files-found: error
 
   stable-release:
