@@ -99,6 +99,7 @@ jobs:
         cd $HOME
         tar -czvf qt-host.tar.gz qt-host/
         tar -czvf qt-raspi.tar.gz qt-raspi/
+        tar -czvf qt-toolchain.tar.gz toolchain.cmake
 
     - name: '⬆ Upload artifact qt-host'
       if: github.event_name != 'pull_request'
@@ -112,6 +113,13 @@ jobs:
       uses: actions/upload-artifact@v3
       with:
         path: '/home/runner/qt-raspi.tar.gz'
+        if-no-files-found: error
+
+    - name: '⬆ Upload artifact qt-toolchain'
+      if: github.event_name != 'pull_request'
+      uses: actions/upload-artifact@v3
+      with:
+        path: '/home/runner/qt-toolchain.tar.gz'
         if-no-files-found: error
 
   stable-release:
